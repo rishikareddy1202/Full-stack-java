@@ -1,0 +1,26 @@
+Minimum Swaps to Sort 
+   
+
+ public int minSwaps(int a[])
+    {
+        // Code here
+        int n=a.length;
+        int c=0;
+        int temp[]=Arrays.copyOfRange(a,0,n);
+        HashMap<Integer,Integer> h=new HashMap<>();
+        for(int i=0;i<n;i++)
+        h.put(a[i],i);
+        Arrays.sort(temp);
+        for(int i=0;i<n;i++){
+            if(a[i]!=temp[i]){
+                c++;
+                int init=a[i];
+                swap(a,i,h.get(temp[i]));
+                
+                h.put(init,h.get(temp[i]));
+                h.put(temp[i],i);
+            }
+        }
+        return c;
+    }
+}

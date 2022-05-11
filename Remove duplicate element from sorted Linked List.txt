@@ -1,0 +1,23 @@
+Remove duplicate element from sorted Linked List
+
+
+class GfG
+{
+    //Function to remove duplicates from sorted linked list.
+    Node removeDuplicates(Node head)
+    {
+	// Your code here
+	 Node pre=head,temp=head;
+	    while(temp!=null){
+	        if(temp.data!=pre.data){
+	            pre.next=temp;
+	            pre=temp;
+	        }
+	        temp=temp.next;
+	    }
+	    if(pre!=temp)
+	    pre.next=null;
+	    
+	    return head;
+    }
+}
